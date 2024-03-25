@@ -40,3 +40,9 @@ variable "enable_log_storage" {
   default     = false
   description = "Enable a dedicated storage for clusters logs."
 }
+
+variable "service_endpoint_list" {
+  type = list(string)
+  default = []
+  description = "List of service endpoint to enable on Databricks vnets"
+}

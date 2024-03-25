@@ -96,6 +96,7 @@ resource "azurerm_subnet" "public" {
       name = "Microsoft.Databricks/workspaces"
     }
   }
+  service_endpoints = var.service_endpoint_list
 }
 
 resource "azurerm_subnet" "private" {
@@ -116,6 +117,7 @@ resource "azurerm_subnet" "private" {
       name = "Microsoft.Databricks/workspaces"
     }
   }
+  service_endpoints = var.service_endpoint_list
 }
 
 resource "azurerm_subnet_network_security_group_association" "private" {

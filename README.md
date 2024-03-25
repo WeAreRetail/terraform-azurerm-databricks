@@ -74,6 +74,7 @@ module "aware_databricks" {
 | <a name="input_caf_prefixes"></a> [caf\_prefixes](#input\_caf\_prefixes) | Prefixes to use for caf naming. | `list(string)` | `[]` | no |
 | <a name="input_description"></a> [description](#input\_description) | Resource description. | `string` | `""` | no |
 | <a name="input_enable_log_storage"></a> [enable\_log\_storage](#input\_enable\_log\_storage) | Enable a dedicated storage for clusters logs. | `bool` | `false` | no |
+| <a name="input_service_endpoint_list"></a> [service\_endpoint\_list](#input\_service\_endpoint\_list) | List of service endpoint to enable on Databricks vnets | `list(string)` | `[]` | no |
 
 #### Outputs
 
