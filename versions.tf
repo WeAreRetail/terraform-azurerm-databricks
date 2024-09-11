@@ -4,16 +4,11 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = ">=4.0.0"
+      version = ">=3.0.2, <4.0.0"
     }
     azurecaf = {
       source  = "aztfmod/azurecaf"
-      version = ">= 1.2.28"
-    }
-
-    random = {
-      source  = "hashicorp/random"
-      version = "3.6.2"
+      version = ">= 1.2.16"
     }
   }
 }

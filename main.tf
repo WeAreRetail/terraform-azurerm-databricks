@@ -3,6 +3,7 @@ locals {
     "description" = var.description
   }
 
+  location            = data.azurerm_resource_group.parent_group.location
   parent_tags         = { for n, v in data.azurerm_resource_group.parent_group.tags : n => v if n != "description" }
   tags                = { for n, v in merge(local.parent_tags, local.specific_tags) : n => v if v != "" }
   public_subnet_name  = "databricks-public"
@@ -131,7 +132,7 @@ resource "azurerm_subnet_network_security_group_association" "public" {
 
 module "logs_storage" {
   source  = "WeAreRetail/storage-account/azurerm"
-  version = "2.0.0"
+  version = "1.2.0"
 
   count = var.enable_log_storage ? 1 : 0
 
