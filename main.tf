@@ -78,10 +78,11 @@ resource "azurerm_databricks_workspace" "self" {
 }
 
 resource "azurerm_subnet" "public" {
-  name                 = local.public_subnet_name
-  resource_group_name  = var.resource_group_name
-  virtual_network_name = data.azurerm_virtual_network.managed_vnet.name
-  address_prefixes     = var.public_subnet_address_prefixes
+  name                              = local.public_subnet_name
+  resource_group_name               = var.resource_group_name
+  virtual_network_name              = data.azurerm_virtual_network.managed_vnet.name
+  address_prefixes                  = var.public_subnet_address_prefixes
+  private_endpoint_network_policies = "Enabled"
 
   delegation {
     name = "databricks-public-delegation"
@@ -99,10 +100,11 @@ resource "azurerm_subnet" "public" {
 }
 
 resource "azurerm_subnet" "private" {
-  name                 = local.private_subnet_name
-  resource_group_name  = var.resource_group_name
-  virtual_network_name = data.azurerm_virtual_network.managed_vnet.name
-  address_prefixes     = var.private_subnet_address_prefixes
+  name                              = local.private_subnet_name
+  resource_group_name               = var.resource_group_name
+  virtual_network_name              = data.azurerm_virtual_network.managed_vnet.name
+  address_prefixes                  = var.private_subnet_address_prefixes
+  private_endpoint_network_policies = "Enabled"
 
   delegation {
     name = "databricks-private-delegation"
