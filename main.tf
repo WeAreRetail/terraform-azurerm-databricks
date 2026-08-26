@@ -96,7 +96,13 @@ resource "azurerm_subnet" "public" {
       name = "Microsoft.Databricks/workspaces"
     }
   }
-  service_endpoints = var.service_endpoint_list
+  dynamic "service_endpoint" {
+    for_each = var.service_endpoint_list
+
+    content {
+      service = service_endpoint.value
+    }
+  }
 }
 
 resource "azurerm_subnet" "private" {
@@ -118,7 +124,13 @@ resource "azurerm_subnet" "private" {
       name = "Microsoft.Databricks/workspaces"
     }
   }
-  service_endpoints = var.service_endpoint_list
+  dynamic "service_endpoint" {
+    for_each = var.service_endpoint_list
+
+    content {
+      service = service_endpoint.value
+    }
+  }
 }
 
 resource "azurerm_subnet_network_security_group_association" "private" {
@@ -133,7 +145,7 @@ resource "azurerm_subnet_network_security_group_association" "public" {
 
 module "logs_storage" {
   source  = "WeAreRetail/storage-account/azurerm"
-  version = "3.4.2"
+  version = "3.5.0"
 
   count = var.enable_log_storage ? 1 : 0
 

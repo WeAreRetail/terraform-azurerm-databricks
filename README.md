@@ -60,7 +60,7 @@ module "aware_databricks" {
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
 | <a name="requirement_azurecaf"></a> [azurecaf](#requirement\_azurecaf) | >= 1.2.28 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=4.0.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=5.0.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.6.2 |
 
 #### Inputs
