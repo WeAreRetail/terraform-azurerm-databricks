@@ -16,6 +16,13 @@ module "aware_databricks" {
   public_subnet_address_prefixes  = [cidrsubnet(local.address_space, 2, 2)]
   caf_prefixes                    = module.databricks_naming.resource_prefixes
   vnet_name                       = module.databricks_virtual_network.name
+
+  # Optional: blob and dfs private endpoints to the DBFS storage account.
+  storage_private_endpoint = {
+    subnet_id         = azurerm_subnet.endpoints.id
+    blob_dns_zone_ids = [azurerm_private_dns_zone.blob.id]
+    dfs_dns_zone_ids  = [azurerm_private_dns_zone.dfs.id]
+  }
 }
 
 ```
@@ -76,6 +83,7 @@ module "aware_databricks" {
 | <a name="input_description"></a> [description](#input\_description) | Resource description. | `string` | `""` | no |
 | <a name="input_enable_log_storage"></a> [enable\_log\_storage](#input\_enable\_log\_storage) | Enable a dedicated storage for clusters logs. | `bool` | `false` | no |
 | <a name="input_service_endpoint_list"></a> [service\_endpoint\_list](#input\_service\_endpoint\_list) | List of service endpoint to enable on Databricks vnets | `list(string)` | `[]` | no |
+| <a name="input_storage_private_endpoint"></a> [storage\_private\_endpoint](#input\_storage\_private\_endpoint) | (Optional) Private endpoints (blob and dfs) to the Databricks DBFS storage account. If not defined, no private endpoint is created.<br/><br/>  subnet\_id - The subnet ID where the private endpoints are created.<br/>  blob\_dns\_zone\_ids - The private DNS zone IDs for the blob endpoint (privatelink.blob.core.windows.net).<br/>  dfs\_dns\_zone\_ids - The private DNS zone IDs for the dfs endpoint (privatelink.dfs.core.windows.net). | <pre>object({<br/>    subnet_id         = string<br/>    blob_dns_zone_ids = list(string)<br/>    dfs_dns_zone_ids  = list(string)<br/>  })</pre> | `null` | no |
 
 #### Outputs
 

@@ -14,7 +14,7 @@ output "workspace_url" {
 }
 
 output "storage_id" {
-  value       = "${azurerm_databricks_workspace.self.managed_resource_group_id}/providers/Microsoft.Storage/storageAccounts/${azurecaf_name.storage.result}"
+  value       = local.storage_id
   description = "Databricks DBFS storage account resource id."
 }
 
