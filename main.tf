@@ -145,7 +145,7 @@ resource "azurerm_subnet_network_security_group_association" "public" {
 
 module "logs_storage" {
   source  = "WeAreRetail/storage-account/azurerm"
-  version = "3.7.0"
+  version = "3.8.0"
 
   count = var.enable_log_storage ? 1 : 0
 
