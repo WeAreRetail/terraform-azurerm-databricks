@@ -64,7 +64,7 @@ module "aware_databricks" {
 #### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
 | <a name="requirement_azurecaf"></a> [azurecaf](#requirement\_azurecaf) | >= 1.2.28 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=5.0.0 |
@@ -73,7 +73,7 @@ module "aware_databricks" {
 #### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_nsg_name"></a> [nsg\_name](#input\_nsg\_name) | Databricks virtual network NSG resource name. | `string` | n/a | yes |
 | <a name="input_private_subnet_address_prefixes"></a> [private\_subnet\_address\_prefixes](#input\_private\_subnet\_address\_prefixes) | Databricks private subnet IP ranges. | `list(string)` | n/a | yes |
 | <a name="input_public_subnet_address_prefixes"></a> [public\_subnet\_address\_prefixes](#input\_public\_subnet\_address\_prefixes) | Databricks public subnet IP ranges. | `list(string)` | n/a | yes |
@@ -88,7 +88,7 @@ module "aware_databricks" {
 #### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_id"></a> [id](#output\_id) | Workspace ID. |
 | <a name="output_logs_storage_id"></a> [logs\_storage\_id](#output\_logs\_storage\_id) | The logs storage account id. |
 | <a name="output_logs_storage_name"></a> [logs\_storage\_name](#output\_logs\_storage\_name) | The logs storage account name. |
